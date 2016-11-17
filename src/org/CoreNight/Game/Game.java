@@ -1,9 +1,7 @@
 package org.CoreNight.Game;
-
 import org.lwjgl.glfw.GLFW;
-
 import static org.lwjgl.system.MemoryUtil.NULL;
-
+//hello
 /**
  * Created by Brennan on 11/17/2016.
  */
