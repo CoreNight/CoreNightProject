@@ -2,7 +2,6 @@ package org.CoreNight.Game;
 
 import org.lwjgl.glfw.GLFW;
 
-import static org.lwjgl.glfw.GLFW.glfwTerminate;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 /**
