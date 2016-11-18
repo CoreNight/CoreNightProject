@@ -3,6 +3,7 @@ import static org.lwjgl.glfw.GLFW.*; //windows
 import static org.lwjgl.opengl.GL11.*; //OpenGL
 import static org.lwjgl.system.MemoryUtil.NULL;
 
+import org.CoreNight.Entity.EntityPlayer;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.glfw.GLFWVidMode;
 
@@ -28,7 +29,7 @@ public class Main implements Runnable {
             System.err.println("GLFW failed to initialize");
         }
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
-        window = glfwCreateWindow(640, 420, "GameName", NULL, NULL);
+        window = glfwCreateWindow(1920, 1080, "GameName", NULL, NULL);
         if(window == NULL){
             System.err.println("Window failed to be created");
         }
@@ -40,8 +41,9 @@ public class Main implements Runnable {
         GL.createCapabilities();
 
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
         glEnable(GL_DEPTH_TEST);
-        System.out.println("OpenGL: + "+ glGetString(GL_VERSION));
+        System.out.println("OpenGL: "+ glGetString(GL_VERSION));
 
     }
     public void update(){
@@ -85,6 +87,7 @@ public class Main implements Runnable {
 
             if(glfwWindowShouldClose(window) == true){
                 running = false;
+                EntityPlayer player = new EntityPlayer();
             }
         }
     }
