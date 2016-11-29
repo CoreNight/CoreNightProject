@@ -8,5 +8,8 @@ public class Entity implements IEntity{
     public int color;
     public double dX, dY;
 
+    public void draw(){
+
+    }
 
 }

@@ -29,6 +29,7 @@ public class Main implements Runnable {
             System.err.println("GLFW failed to initialize");
         }
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
+        //TODO change name.
         window = glfwCreateWindow(1920, 1080, "GameName", NULL, NULL);
         if(window == NULL){
             System.err.println("Window failed to be created");
@@ -40,9 +41,16 @@ public class Main implements Runnable {
         glfwShowWindow(window);
         GL.createCapabilities();
 
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
 
         glEnable(GL_DEPTH_TEST);
+
+        //set up projection matrix; allows us to draw.
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0,1920, 1080, 0, 1, -1);
+        glMatrixMode(GL_MODELVIEW);
+
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
 
     }

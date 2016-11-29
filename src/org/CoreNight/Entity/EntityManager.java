@@ -14,6 +14,7 @@ public class EntityManager {
             e.x *= e.dX;
             e.y *= e.dY;
             e.dY = 1; e.dX = 1;
+            e.draw();
         }
     }
 }
