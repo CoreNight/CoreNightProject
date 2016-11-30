@@ -8,9 +8,9 @@ import java.awt.*;
  * Created by Brennan on 11/17/2016.
  */
 public class Entity {
-    public int x = 0, y = 0;
+    public int x = 1, y = 1;
     public Color color;
-    public double speed;
+    public double speed = 1.01f;
 
     public Entity(){
         EntityManager.put(this);
@@ -25,8 +25,4 @@ public class Entity {
             this.y *= speed;
         }
     }
-    public int[] getColor(){
-        return new int[]{color.getRed(), color.getBlue(), color.getGreen()};
-    }
-
 }

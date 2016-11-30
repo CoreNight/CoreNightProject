@@ -63,6 +63,7 @@ public class Main implements Runnable {
 
     }
     public void update(){
+        GameManager.tick(); //put game code somewhere else.
         glfwPollEvents();
         EntityManager.updateEntities();
 

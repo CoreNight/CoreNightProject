@@ -1,5 +1,6 @@
 package org.CoreNight.Entity;
 
+import org.CoreNight.GameManager;
 import org.CoreNight.Main;
 
 import java.awt.*;
@@ -11,8 +12,8 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class EntityBox extends Entity{
     public int row;
-    public int height = 100, rowcount = 6;
-    public int width = Main.width / rowcount;
+    public int height = 100;
+    public int width = Main.width / GameManager.rowcount;
     public EntityBox(){
         this(0, Color.black);
     }
@@ -27,9 +28,8 @@ public class EntityBox extends Entity{
     }
 
 
-    //@Override
     public void draw(){
-        glColor3iv(this.getColor());
+        glColor3ub((byte)color.getRed(),(byte) color.getBlue(),(byte) color.getGreen());
         glBegin(GL_QUADS);
             glVertex2i(this.x, this.y); //top left
             glVertex2i(this.x + this.width, this.y);
@@ -39,6 +39,7 @@ public class EntityBox extends Entity{
     }
 
     public void update(){
+        super.update();
         this.x = row * width;
     }
 }
