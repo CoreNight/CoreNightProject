@@ -22,5 +22,8 @@ public class KeyboardHandler extends GLFWKeyCallback{
         }else if(key ==GLFW_KEY_RIGHT && action != GLFW_RELEASE){
             player.row = player.row == GameManager.rowcount - 1 ? GameManager.rowcount - 1 : player.row + 1;
         }
+        if(key == GLFW_KEY_ESCAPE){
+            System.exit(0);
+        }
     }
 }

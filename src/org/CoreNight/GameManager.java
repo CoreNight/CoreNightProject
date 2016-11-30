@@ -27,10 +27,7 @@ public class GameManager{
         speed *=1.0005;
         Random rand = new Random();
         cycles++;
-        System.out.println(cycles);
-        System.out.println(speed);
-        System.out.println(1/(speed-1));
-        if(cycles % 100 > 1/(speed-1)){
+        if(cycles % 50 == 0){
             EntityBox box = new EntityBox(rand.nextInt(rowcount), COLORS[rand.nextInt(COLORS.length)]);
 
         }
