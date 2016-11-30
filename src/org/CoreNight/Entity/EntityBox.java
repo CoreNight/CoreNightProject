@@ -29,7 +29,7 @@ public class EntityBox extends Entity{
 
 
     public void draw(){
-        glColor3ub((byte)color.getRed(),(byte) color.getBlue(),(byte) color.getGreen());
+        glColor3ub((byte)color.getRed(),(byte) color.getGreen(),(byte) color.getBlue());
         glBegin(GL_QUADS);
             glVertex2f(this.x, this.y); //top left
             glVertex2f(this.x + this.width, this.y);
@@ -44,6 +44,7 @@ public class EntityBox extends Entity{
 
         if(this.y + this.height > Main.player.y && this.row == Main.player.row && !(this instanceof EntityPlayer)){
             System.out.println("Collision!");;
+            GameManager.addColor(this.color);
             EntityManager.remove(this);
         }
     }

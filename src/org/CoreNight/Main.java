@@ -9,10 +9,13 @@ import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.glfw.GLFWVidMode;
 
+import java.awt.*;
+
 /**
  * Created by Brennan on 11/17/2016.
  */
 public class Main implements Runnable {
+    public Color background;
     private Thread thread;
     public boolean running = true;
     public static long window;
@@ -49,7 +52,7 @@ public class Main implements Runnable {
         glfwShowWindow(window);
         GL.createCapabilities();
 
-        glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
         glEnable(GL_DEPTH_TEST);
 
@@ -68,7 +71,7 @@ public class Main implements Runnable {
 
     }
     public void update(){
-
+        GameManager.updateColor();
         EntityManager.updateEntities();
         GameManager.tick(); //put game code somewhere else.
         glfwPollEvents();

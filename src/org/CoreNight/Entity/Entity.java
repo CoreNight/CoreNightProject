@@ -1,5 +1,6 @@
 package org.CoreNight.Entity;
 
+import org.CoreNight.GameManager;
 import org.CoreNight.Main;
 
 import java.awt.*;
@@ -10,7 +11,6 @@ import java.awt.*;
 public class Entity {
     public float x = 1, y = 1;
     public Color color;
-    public float speed = 5f;
 
     public Entity(){
         EntityManager.put(this);
@@ -22,7 +22,7 @@ public class Entity {
         if( this.y > Main.height){
             EntityManager.remove(this);
         }else if(!(this instanceof EntityPlayer)){
-            this.y += speed;
+            this.y += GameManager.speed;
         }
     }
 }
