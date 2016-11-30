@@ -8,17 +8,19 @@ import java.util.List;
  */
 public class EntityManager {
     private static List<Entity> entityList = new ArrayList<>();
-
+    private static List<Entity> removeList = new ArrayList<>();
     public static void put(Entity entity){
         entityList.add(entity);
     }
     public static void remove(Entity entity){
-        entityList.remove(entity);
+        removeList.add(entity);
     }
+
     public static void updateEntities(){
         for(Entity e : entityList){
             e.update();
         }
+        entityList.removeAll(removeList);
     }
     public static void drawEntities(){
         for(Entity e : entityList){

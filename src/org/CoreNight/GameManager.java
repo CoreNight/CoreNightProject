@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class GameManager{
     private static int cycles = 0;
-    public static int rowcount = 6;
+    public static int rowcount = 20;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,

@@ -22,8 +22,8 @@ public class EntityBox extends Entity{
         super();
         this.row = row;
         this.color = color;
-        this.y = 0;
-        this.x = 0;
+        this.y = 1;
+        this.x = 1;
 
     }
 
@@ -31,10 +31,10 @@ public class EntityBox extends Entity{
     public void draw(){
         glColor3ub((byte)color.getRed(),(byte) color.getBlue(),(byte) color.getGreen());
         glBegin(GL_QUADS);
-            glVertex2i(this.x, this.y); //top left
-            glVertex2i(this.x + this.width, this.y);
-            glVertex2i(this.x + this.width, this.y + this.height);
-            glVertex2i(this.x, this.y + this.height);
+            glVertex2f(this.x, this.y); //top left
+            glVertex2f(this.x + this.width, this.y);
+            glVertex2f(this.x + this.width, this.y + this.height);
+            glVertex2f(this.x, this.y + this.height);
         glEnd();
     }
 

@@ -3,13 +3,11 @@ import static org.lwjgl.glfw.GLFW.*; //windows
 import static org.lwjgl.opengl.GL11.*; //OpenGL
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-import org.CoreNight.Entity.EntityBox;
 import org.CoreNight.Entity.EntityManager;
 import org.CoreNight.Entity.EntityPlayer;
+import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.glfw.GLFWVidMode;
-
-import java.awt.*;
 
 /**
  * Created by Brennan on 11/17/2016.
@@ -20,6 +18,10 @@ public class Main implements Runnable {
     public static long window;
     public static int width = 1920;
     public static int height = 1080;
+    public static EntityPlayer player;
+    private GLFWKeyCallback callback;
+
+
     public static void main(String[] args) {
         Main game = new Main();
         game.start();
@@ -58,15 +60,18 @@ public class Main implements Runnable {
         glMatrixMode(GL_MODELVIEW);
 
         //EntityBox testBox = new EntityBox(3, Color.RED);
-        EntityPlayer player = new EntityPlayer();
+        player = new EntityPlayer();
+
+
+        glfwSetKeyCallback(window, callback = new KeyboardHandler(player));
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
 
     }
     public void update(){
+
+        EntityManager.updateEntities();
         GameManager.tick(); //put game code somewhere else.
         glfwPollEvents();
-        EntityManager.updateEntities();
-
     }
     public void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -93,6 +98,7 @@ public class Main implements Runnable {
             delta += (now - lastTime) / ns;
             lastTime = now;
             if(delta >= 1.0){
+
                 update();
                 updates++;
                 delta--;

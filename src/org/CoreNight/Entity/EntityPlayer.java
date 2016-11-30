@@ -25,11 +25,5 @@ public class EntityPlayer extends EntityBox {
     @Override
     public void update(){
         super.update();
-        glfwWaitEvents();
-        if(glfwGetKey(Main.window, GLFW_KEY_LEFT) == GLFW_TRUE){
-            this.row = row == 0 ? 0 : row - 1;
-        }else if(glfwGetKey(Main.window, GLFW_KEY_RIGHT) == GLFW_TRUE){
-            this.row = row == GameManager.rowcount - 1 ? GameManager.rowcount - 1 : row + 1;
-        }
     }
 }
