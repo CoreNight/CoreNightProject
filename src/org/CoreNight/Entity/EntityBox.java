@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class EntityBox extends Entity{
     public int row;
-    public int height = 100, rowcount = 7;
+    public int height = 100, rowcount = 6;
     public int width = Main.width / rowcount;
     public EntityBox(){
         this(0, Color.black);
@@ -39,6 +39,6 @@ public class EntityBox extends Entity{
     }
 
     public void update(){
-       // this.x = row * width;
+        this.x = row * width;
     }
 }

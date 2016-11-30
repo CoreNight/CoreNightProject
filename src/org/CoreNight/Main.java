@@ -17,7 +17,7 @@ import java.awt.*;
 public class Main implements Runnable {
     private Thread thread;
     public boolean running = true;
-    private long window;
+    public static long window;
     public static int width = 1920;
     public static int height = 1080;
     public static void main(String[] args) {
