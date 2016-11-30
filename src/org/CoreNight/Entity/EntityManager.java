@@ -12,6 +12,9 @@ public class EntityManager {
     public static void put(Entity entity){
         entityList.add(entity);
     }
+    public static void remove(Entity entity){
+        entityList.remove(entity);
+    }
     public static void updateEntities(){
         for(Entity e : entityList){
             e.update();

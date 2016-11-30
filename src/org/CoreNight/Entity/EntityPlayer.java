@@ -25,13 +25,10 @@ public class EntityPlayer extends EntityBox {
     public void update(){
         super.update();
         glfwWaitEvents();
-        glfwWaitEventsTimeout(0d);
-
         if(glfwGetKey(Main.window, GLFW_KEY_LEFT) == GLFW_TRUE){
             this.row = row == 0 ? 0 : row - 1;
         }else if(glfwGetKey(Main.window, GLFW_KEY_RIGHT) == GLFW_TRUE){
             this.row = row == this.rowcount - 1 ? this.rowcount - 1 : row + 1;
         }
-        System.out.println(this.row);
     }
 }
