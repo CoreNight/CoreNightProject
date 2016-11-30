@@ -9,11 +9,16 @@ import java.util.List;
 public class EntityManager {
     private static List<Entity> entityList = new ArrayList<>();
 
-    public void updateEntities(){
+    public static void put(Entity entity){
+        entityList.add(entity);
+    }
+    public static void updateEntities(){
         for(Entity e : entityList){
-            e.x *= e.dX;
-            e.y *= e.dY;
-            e.dY = 1; e.dX = 1;
+            e.update();
+        }
+    }
+    public static void drawEntities(){
+        for(Entity e : entityList){
             e.draw();
         }
     }

@@ -11,8 +11,12 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class EntityBox extends Entity{
     public int row;
-    private int height = 100, rowcount = 5;
-    private int width = Main.width / rowcount;
+    public int height = 100, rowcount = 7;
+    public int width = Main.width / rowcount;
+    public EntityBox(){
+        this(0, Color.black);
+    }
+
     public EntityBox(int row, Color color){
         super();
         this.row = row;
@@ -25,7 +29,7 @@ public class EntityBox extends Entity{
 
     //@Override
     public void draw(){
-        glColor3f(1.0f, 0.0f, 0.0f);
+        glColor3iv(this.getColor());
         glBegin(GL_QUADS);
             glVertex2i(this.x, this.y); //top left
             glVertex2i(this.x + this.width, this.y);

@@ -3,9 +3,13 @@ import static org.lwjgl.glfw.GLFW.*; //windows
 import static org.lwjgl.opengl.GL11.*; //OpenGL
 import static org.lwjgl.system.MemoryUtil.NULL;
 
+import org.CoreNight.Entity.EntityBox;
+import org.CoreNight.Entity.EntityManager;
 import org.CoreNight.Entity.EntityPlayer;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.glfw.GLFWVidMode;
+
+import java.awt.*;
 
 /**
  * Created by Brennan on 11/17/2016.
@@ -14,6 +18,8 @@ public class Main implements Runnable {
     private Thread thread;
     public boolean running = true;
     private long window;
+    public static int width = 1920;
+    public static int height = 1080;
     public static void main(String[] args) {
         Main game = new Main();
         game.start();
@@ -30,7 +36,7 @@ public class Main implements Runnable {
         }
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
         //TODO change name.
-        window = glfwCreateWindow(1920, 1080, "GameName", NULL, NULL);
+        window = glfwCreateWindow(width, height, "GameName", NULL, NULL);
         if(window == NULL){
             System.err.println("Window failed to be created");
         }
@@ -48,19 +54,24 @@ public class Main implements Runnable {
         //set up projection matrix; allows us to draw.
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(0,1920, 1080, 0, 1, -1);
+        glOrtho(0, width, height, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
 
+        //EntityBox testBox = new EntityBox(3, Color.RED);
+        EntityPlayer player = new EntityPlayer();
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
 
     }
     public void update(){
         glfwPollEvents();
+        EntityManager.updateEntities();
 
     }
     public void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        EntityManager.drawEntities();
         glfwSwapBuffers(window);
+
     }
 
     /**
@@ -95,7 +106,6 @@ public class Main implements Runnable {
 
             if(glfwWindowShouldClose(window) == true){
                 running = false;
-                EntityPlayer player = new EntityPlayer();
             }
         }
     }
