@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class GameManager{
     private static int cycles = 0;
-    public static int rowcount = 20;
+    public static int rowcount = 6;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,
@@ -19,7 +19,7 @@ public class GameManager{
     public static void tick(){
         Random rand = new Random();
         cycles++;
-        if(cycles % 2  == 0){
+        if(cycles % 100  == 0){
             EntityBox box = new EntityBox(rand.nextInt(rowcount), COLORS[rand.nextInt(3)]);
 
         }

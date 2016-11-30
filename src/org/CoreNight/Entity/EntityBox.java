@@ -23,7 +23,7 @@ public class EntityBox extends Entity{
         this.row = row;
         this.color = color;
         this.y = 1;
-        this.x = 1;
+        this.x = row*width;
 
     }
 
@@ -41,5 +41,10 @@ public class EntityBox extends Entity{
     public void update(){
         super.update();
         this.x = row * width;
+
+        if(this.y + this.height > Main.player.y && this.row == Main.player.row && !(this instanceof EntityPlayer)){
+            System.out.println("Collision!");;
+            EntityManager.remove(this);
+        }
     }
 }
