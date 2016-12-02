@@ -58,7 +58,13 @@ public class GameManager{
         r += c[0];
         g += c[1];
         b += c[2];
+        player.color = getContrastColor(background);
     }
+    public static Color getContrastColor(Color color) {
+        double y = (299 * color.getRed() + 587 * color.getGreen() + 114 * color.getBlue()) / 1000;
+        return y >= 128 ? Color.black : Color.white;
+    }
+
     private enum Mode {
         MENU,GAME;
     }
