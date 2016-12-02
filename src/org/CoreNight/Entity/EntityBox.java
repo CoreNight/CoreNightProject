@@ -45,7 +45,7 @@ public class EntityBox extends Entity{
         if(this.y + this.height > GameManager.player.y && this.row == GameManager.player.row && !(this instanceof EntityPlayer)){
             GameManager.addColor(this.color);
             EntityManager.remove(this);
-            if(this.color.equals(Color.GRAY) || this.color.equals(Color.LIGHT_GRAY)){
+            if(this.color.equals(Color.GRAY) || this.color.equals(Color.LIGHT_GRAY) || this.color.equals(Color.DARK_GRAY)){
                 System.exit(0);
             }
         }

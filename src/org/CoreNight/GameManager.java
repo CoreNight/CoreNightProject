@@ -40,7 +40,7 @@ public class GameManager{
             if(rand.nextInt(100)>80 && (speed/2)>.75){
                 color = COLORS[rand.nextInt(COLORS.length)];
             }else{
-                color = Color.LIGHT_GRAY;
+                color = Color.DARK_GRAY;
             }
 
             EntityBox box = new EntityBox(rand.nextInt(rowcount), color);
