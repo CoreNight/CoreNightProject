@@ -1,6 +1,7 @@
 package org.CoreNight;
 
 import org.CoreNight.Entity.EntityBox;
+import org.CoreNight.Entity.EntityManager;
 import org.CoreNight.Entity.EntityPlayer;
 
 import java.awt.*;
@@ -12,6 +13,7 @@ import static org.lwjgl.opengl.GL11.glClearColor;
  * Created by Brennan on 11/30/2016.
  */
 public class GameManager{
+    public static Mode mode;
     public static EntityPlayer player;
     public static Color background;
     public static float r = 0, g=0, b=0;
@@ -26,24 +28,40 @@ public class GameManager{
     };
 
     public static void init(){
-        player = new EntityPlayer();
+        if(mode == Mode.GAME){
+            player = new EntityPlayer();
+        }else if(mode == Mode.MENU){
 
+        }
 
     }
     public static void tick(){
+        if(mode == Mode.GAME){
+            GameManager.updateColor();
+            EntityManager.updateEntities();
 
-        speed *=1.001;
-        Random rand = new Random();
-        cycles++;
-        if(cycles % 100 == 0){
-            Color color;
-            if(rand.nextInt(100)>80 && (speed/2)>.75){
-                color = COLORS[rand.nextInt(COLORS.length)];
-            }else{
-                color = Color.DARK_GRAY;
+            speed *= 1.001;
+            Random rand = new Random();
+            cycles++;
+            if(cycles % 100 == 0){
+                Color color;
+                if(rand.nextInt(100) > 80 && (speed / 2) > .75){
+                    color = COLORS[rand.nextInt(COLORS.length)];
+                }else{
+                    color = Color.DARK_GRAY;
+                }
+
+                EntityBox box = new EntityBox(rand.nextInt(rowcount), color);
+
             }
+        }else if(mode == Mode.MENU){
 
-            EntityBox box = new EntityBox(rand.nextInt(rowcount), color);
+        }
+    }
+    public static void render(){
+        if(mode == Mode.GAME){
+            EntityManager.drawEntities();
+        }else if(mode == Mode.MENU){
 
         }
     }

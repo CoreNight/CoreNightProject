@@ -51,7 +51,6 @@ public class Main implements Runnable {
         glfwMakeContextCurrent(window);
         glfwShowWindow(window);
         GL.createCapabilities();
-
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
         glEnable(GL_DEPTH_TEST);
@@ -70,14 +69,12 @@ public class Main implements Runnable {
 
     }
     public void update(){
-        GameManager.updateColor();
-        EntityManager.updateEntities();
         GameManager.tick(); //put game code somewhere else.
         glfwPollEvents();
     }
     public void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        EntityManager.drawEntities();
+        GameManager.render();
         glfwSwapBuffers(window);
 
     }
