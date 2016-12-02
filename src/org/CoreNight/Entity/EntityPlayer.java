@@ -26,4 +26,6 @@ public class EntityPlayer extends EntityBox {
     public void update(){
         super.update();
     }
+
+
 }

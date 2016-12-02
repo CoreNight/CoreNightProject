@@ -19,9 +19,9 @@ public class Main implements Runnable {
     private Thread thread;
     public boolean running = true;
     public static long window;
-    public static int width = 1920;
-    public static int height = 1080;
-    public static EntityPlayer player;
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static int width = screenSize.width;
+    public static int height = screenSize.height;
     private GLFWKeyCallback callback;
 
 
@@ -41,13 +41,13 @@ public class Main implements Runnable {
         }
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
         //TODO change name.
-        window = glfwCreateWindow(width, height, "GameName", NULL, NULL);
+        window = glfwCreateWindow(width, height, "GameName", glfwGetPrimaryMonitor(), NULL);
         if(window == NULL){
             System.err.println("Window failed to be created");
         }
 
         GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-        glfwSetWindowPos(window, 100, 100);
+        glfwSetWindowPos(window, 0, 50);
         glfwMakeContextCurrent(window);
         glfwShowWindow(window);
         GL.createCapabilities();
@@ -62,11 +62,10 @@ public class Main implements Runnable {
         glOrtho(0, width, height, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
 
-        //EntityBox testBox = new EntityBox(3, Color.RED);
-        player = new EntityPlayer();
+        GameManager.init();
 
 
-        glfwSetKeyCallback(window, callback = new KeyboardHandler(player));
+        glfwSetKeyCallback(window, callback = new KeyboardHandler(GameManager.player));
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
 
     }

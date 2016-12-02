@@ -42,10 +42,12 @@ public class EntityBox extends Entity{
         super.update();
         this.x = row * width;
 
-        if(this.y + this.height > Main.player.y && this.row == Main.player.row && !(this instanceof EntityPlayer)){
-            System.out.println("Collision!");;
+        if(this.y + this.height > GameManager.player.y && this.row == GameManager.player.row && !(this instanceof EntityPlayer)){
             GameManager.addColor(this.color);
             EntityManager.remove(this);
+            if(this.color.equals(Color.GRAY) || this.color.equals(Color.LIGHT_GRAY)){
+                System.exit(0);
+            }
         }
     }
 }
