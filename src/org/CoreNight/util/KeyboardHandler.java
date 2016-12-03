@@ -1,6 +1,7 @@
-package org.CoreNight;
+package org.CoreNight.util;
 
 import org.CoreNight.Entity.EntityPlayer;
+import org.CoreNight.GameManager;
 import org.lwjgl.glfw.GLFWKeyCallback;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -10,7 +11,7 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public class KeyboardHandler extends GLFWKeyCallback{
     private static EntityPlayer player;
-    KeyboardHandler(EntityPlayer player){
+    public KeyboardHandler(EntityPlayer player){
         this.player = player;
     }
     public static boolean[] keys = new boolean[65536];

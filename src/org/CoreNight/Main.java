@@ -3,8 +3,7 @@ import static org.lwjgl.glfw.GLFW.*; //windows
 import static org.lwjgl.opengl.GL11.*; //OpenGL
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-import org.CoreNight.Entity.EntityManager;
-import org.CoreNight.Entity.EntityPlayer;
+import org.CoreNight.util.KeyboardHandler;
 import org.lwjgl.glfw.GLFWKeyCallback;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.glfw.GLFWVidMode;
