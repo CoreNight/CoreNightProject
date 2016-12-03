@@ -22,6 +22,7 @@ public class EntityManager {
         }
         entityList.removeAll(removeList);
     }
+
     public static void drawEntities(){
         for(Entity e : entityList){
             e.draw();

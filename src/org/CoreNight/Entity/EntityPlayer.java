@@ -14,14 +14,15 @@ public class EntityPlayer extends EntityBox {
     int lives = 1;
     public EntityPlayer(){
         super();
-        this.color = Color.WHITE;
+        this.color = Color.DARK_GRAY;
         this.y = Main.height - 100;
         this.height = 100;
-
     }
+
     public void draw(){
         super.draw();
     }
+
     @Override
     public void update(){
         super.update();

@@ -15,9 +15,9 @@ public class Entity {
     public Entity(){
         EntityManager.put(this);
     }
-    public void draw(){
 
-    }
+    public void draw(){}
+
     public void update(){
         if( this.y > Main.height){
             EntityManager.remove(this);

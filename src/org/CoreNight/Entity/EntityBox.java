@@ -24,9 +24,7 @@ public class EntityBox extends Entity{
         this.color = color;
         this.y = 1;
         this.x = row*width;
-
     }
-
 
     public void draw(){
         glColor3ub((byte)color.getRed(),(byte) color.getGreen(),(byte) color.getBlue());

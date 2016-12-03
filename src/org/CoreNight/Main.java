@@ -28,12 +28,14 @@ public class Main implements Runnable {
         Main game = new Main();
         game.start();
     }
+
     public void start(){
         running = true;
         //TODO change name.
         thread = new Thread(this, "GameName");
         thread.start();
     }
+
     public void init(){
         if(glfwInit() != true){
             System.err.println("GLFW failed to initialize");
@@ -65,17 +67,17 @@ public class Main implements Runnable {
 
         glfwSetKeyCallback(window, callback = new KeyboardHandler(GameManager.player));
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
-
     }
+
     public void update(){
         GameManager.tick(); //put game code somewhere else.
         glfwPollEvents();
     }
+
     public void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         GameManager.render();
         glfwSwapBuffers(window);
-
     }
 
     /**

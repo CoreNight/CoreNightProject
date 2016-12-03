@@ -28,18 +28,18 @@ public class GameManager{
             Color.RED,
             Color.BLUE,
             Color.GREEN
-
     };
 
     public static void init(){
         if(mode == Mode.GAME){
             player = new EntityPlayer();
-        }else if(mode == Mode.MENU){
+        }
+        else if(mode == Mode.MENU){
             glClearColor(0,0,0,0);
             play = new ButtonPlay(100, 100, 100, 100, Color.BLUE, Color.WHITE, "Play");
         }
-
     }
+
     public static void tick(){
         if(mode == Mode.GAME){
             GameManager.updateColor();
@@ -53,16 +53,15 @@ public class GameManager{
                 if(rand.nextInt(100) > 80 && (speed / 2) > .75){
                     color = COLORS[rand.nextInt(COLORS.length)];
                 }else{
-                    color = Color.DARK_GRAY;
+                    color = Color.WHITE;
                 }
-
                 EntityBox box = new EntityBox(rand.nextInt(rowcount), color);
-
             }
-        }else if(mode == Mode.MENU){
-
+        }
+        else if(mode == Mode.MENU){
         }
     }
+
     public static void render(){
         if(mode == Mode.GAME){
             EntityManager.drawEntities();
@@ -84,6 +83,7 @@ public class GameManager{
         background = new Color(r/count, g/count, b/count);
         glClearColor(r/count, g/count, b/count, 1.0f);
     }
+
     public static void addColor(Color color){
         float[] c = color.getRGBColorComponents(null);
         r += c[0];
@@ -91,6 +91,7 @@ public class GameManager{
         b += c[2];
         player.color = getContrastColor(background);
     }
+
     public static Color getContrastColor(Color color) {
         double y = (299 * color.getRed() + 587 * color.getGreen() + 114 * color.getBlue()) / 1000;
         return y >= 128 ? Color.black : Color.white;
