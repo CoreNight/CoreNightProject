@@ -14,14 +14,23 @@ public class KeyboardHandler extends GLFWKeyCallback{
     public KeyboardHandler(EntityPlayer player){
         this.player = player;
     }
-    public static boolean[] keys = new boolean[65536];
 
     @Override
     public void invoke(long window, int key, int scancode, int action, int mods){
-        if(key == GLFW_KEY_LEFT && action != GLFW_RELEASE){
-            player.row = player.row == 0 ? 0 : player.row - 1;
-        }else if(key ==GLFW_KEY_RIGHT && action != GLFW_RELEASE){
-            player.row = player.row == GameManager.rowcount - 1 ? GameManager.rowcount - 1 : player.row + 1;
+        if( GameManager.mode == GameManager.Mode.GAME){
+            if(key == GLFW_KEY_LEFT && action != GLFW_RELEASE){
+                player.row = player.row == 0 ? 0 : player.row - 1;
+            }else if(key == GLFW_KEY_RIGHT && action != GLFW_RELEASE){
+                player.row = player.row == GameManager.rowcount - 1 ?
+                             GameManager.rowcount - 1 : player.row + 1;
+            }
+        }else if(GameManager.mode == GameManager.Mode.MENU){
+            if(key == GLFW_KEY_UP && action != GLFW_RELEASE){
+                GameManager.buttonIndex = GameManager.buttonIndex == 0 ? 0 : GameManager.buttonIndex - 1;
+            }else if(key == GLFW_KEY_DOWN && action != GLFW_RELEASE){
+                GameManager.buttonIndex = GameManager.buttonIndex == 1 ?
+                             1 : GameManager.buttonIndex + 1;
+            }
         }
         if(key == GLFW_KEY_ESCAPE){
             System.exit(0);

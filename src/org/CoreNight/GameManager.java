@@ -3,6 +3,7 @@ package org.CoreNight;
 import org.CoreNight.Entity.EntityBox;
 import org.CoreNight.Entity.EntityManager;
 import org.CoreNight.Entity.EntityPlayer;
+import org.CoreNight.gui.ButtonPlay;
 
 import java.awt.*;
 import java.util.Random;
@@ -20,6 +21,9 @@ public class GameManager{
     public static int cycles = 0;
     public static int rowcount = 6;
     public static float speed = 1;
+    static ButtonPlay play;
+    public static int buttonIndex = 0;
+    Button statement;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,
@@ -31,7 +35,8 @@ public class GameManager{
         if(mode == Mode.GAME){
             player = new EntityPlayer();
         }else if(mode == Mode.MENU){
-
+            glClearColor(0,0,0,0);
+            play = new ButtonPlay(100, 100, 100, 100, Color.BLUE, Color.WHITE, "Play");
         }
 
     }
@@ -62,6 +67,14 @@ public class GameManager{
         if(mode == Mode.GAME){
             EntityManager.drawEntities();
         }else if(mode == Mode.MENU){
+            if(buttonIndex == 0){
+                play.drawWithHighlight();
+                System.out.println(buttonIndex);
+            }else if(buttonIndex == 1){
+                play.draw();
+            }else{
+
+            }
 
         }
     }
@@ -83,7 +96,7 @@ public class GameManager{
         return y >= 128 ? Color.black : Color.white;
     }
 
-    private enum Mode {
-        MENU,GAME;
+    public enum Mode {
+        MENU,GAME
     }
 }

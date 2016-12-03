@@ -59,7 +59,7 @@ public class Main implements Runnable {
         glLoadIdentity();
         glOrtho(0, width, height, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
-
+        GameManager.mode = GameManager.Mode.GAME;
         GameManager.init();
 
 
