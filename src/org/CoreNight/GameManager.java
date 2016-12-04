@@ -23,7 +23,6 @@ public class GameManager{
     public static float speed = 1;
     static ButtonPlay play;
     public static int buttonIndex = 0;
-    Button statement;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,
@@ -51,7 +50,7 @@ public class GameManager{
             if(cycles % 100 == 0){
                 Color color;
                 if(rand.nextInt(100) > 80 && (speed / 2) > .75){
-                    color = COLORS[rand.nextInt(COLORS.length)];
+                     color= COLORS[rand.nextInt(COLORS.length)];
                 }else{
                     color = Color.WHITE;
                 }
@@ -59,6 +58,7 @@ public class GameManager{
             }
         }
         else if(mode == Mode.MENU){
+
         }
     }
 

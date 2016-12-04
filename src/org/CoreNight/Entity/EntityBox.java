@@ -44,7 +44,7 @@ public class EntityBox extends Entity{
             GameManager.addColor(this.color);
             EntityManager.remove(this);
             if(this.color.equals(Color.GRAY) || this.color.equals(Color.LIGHT_GRAY) || this.color.equals(Color.DARK_GRAY)){
-                System.exit(0);
+                Main.running = false;
             }
         }
     }
