@@ -16,7 +16,7 @@ import java.awt.*;
 public class Main implements Runnable {
     public Color background;
     private Thread thread;
-    public boolean running = true;
+    public static boolean running = true;
     public static long window;
     static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static int width = screenSize.width;

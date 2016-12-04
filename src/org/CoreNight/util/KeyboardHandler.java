@@ -2,6 +2,7 @@ package org.CoreNight.util;
 
 import org.CoreNight.Entity.EntityPlayer;
 import org.CoreNight.GameManager;
+import org.CoreNight.Main;
 import org.lwjgl.glfw.GLFWKeyCallback;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -33,7 +34,7 @@ public class KeyboardHandler extends GLFWKeyCallback{
             }
         }
         if(key == GLFW_KEY_ESCAPE){
-            System.exit(0);
+            Main.running = false;
         }
     }
 }
