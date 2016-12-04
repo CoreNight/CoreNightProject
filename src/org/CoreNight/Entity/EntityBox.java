@@ -42,41 +42,38 @@ public class EntityBox extends Entity{
         super.update();
         this.x = row * width;
 
-        if(this.y + this.height > GameManager.player.y && this.row == GameManager.player.row && !(this instanceof EntityPlayer)) {
+        if(this.y + this.height > GameManager.player.y && this.row == GameManager.player.row && !(this instanceof EntityPlayer)){
             GameManager.addColor(this.color);
             EntityManager.remove(this);
-            if (this.y + this.height > GameManager.player.y && this.row == GameManager.player.row && !(this instanceof EntityPlayer)) {
-                GameManager.addColor(this.color);
-                EntityManager.remove(this);
-                if (this.color.equals(Color.WHITE)) {
-                    if (GameManager.player.lives == 1) {
-                        System.exit(0);
-                    } else {
-                        GameManager.player.lives -= 1;
+            if(this.color.equals(Color.WHITE)){
+                if (GameManager.player.lives == 1) {
+                    System.exit(0);
+                }
+                else {
+                    GameManager.player.lives -= 1;
+                }
+            }
+
+            if (this.color.equals(Color.BLUE)) {
+                System.out.println("Blue color hit");
+                float origSpeed = GameManager.speed;
+                GameManager.speed = 1;
+                Timer t = new Timer( );
+                t.scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        GameManager.speed = origSpeed;
+                        GameManager.background = new Color(0, 0, 0);
                     }
-                }
+                }, 5000,1000);
+            }
 
-                if (this.color.equals(Color.BLUE)) {
-                    System.out.println("Blue color hit");
-                    float origSpeed = GameManager.speed;
-                    GameManager.speed = 1;
-                    Timer t = new Timer();
-                    t.scheduleAtFixedRate(new TimerTask() {
-                        @Override
-                        public void run() {
-                            GameManager.speed = origSpeed;
-                            GameManager.background = new Color(0, 0, 0);
-                        }
-                    }, 5000, 1000);
-                }
+            if (this.color.equals(Color.GREEN)) {
+                GameManager.player.lives += 1;
+            }
 
-                if (this.color.equals(Color.GREEN)) {
-                    GameManager.player.lives += 1;
-                }
-
-                if (this.color.equals(Color.RED)) {
-                    // put red ability code here
-                }
+            if (this.color.equals(Color.RED)) {
+                // put red ability code here
             }
         }
     }
