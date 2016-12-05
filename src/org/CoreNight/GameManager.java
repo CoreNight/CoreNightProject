@@ -24,6 +24,7 @@ public class GameManager{
     static ButtonPlay play;
     public static int buttonIndex = 0;
     public static Color spawnOverride = null;
+    public static boolean reset = false;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,
@@ -65,6 +66,10 @@ public class GameManager{
         else if(mode == Mode.MENU){
 
         }
+        if(reset){
+            reset();
+            reset = false;
+        }
     }
 
     public static void render(){
@@ -95,6 +100,22 @@ public class GameManager{
         g += c[1];
         b += c[2];
         player.color = Color.DARK_GRAY;
+    }
+
+    public static void reset(){
+        EntityManager.clear();
+        background = Color.BLACK;
+        spawnOverride = null;
+        r = 0; b = 0; g = 0;
+        player = null;
+        cycles = 0;
+        speed = 1;
+        try{
+           // Thread.sleep(1000);
+        }catch (Exception e){
+        }finally{
+            init();
+        }
     }
 
     public enum Mode {

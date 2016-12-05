@@ -37,4 +37,8 @@ public class EntityManager {
             }
         }
     }
+
+    public static void clear(){
+        entityList.clear();
+    }
 }

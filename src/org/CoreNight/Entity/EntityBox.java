@@ -50,7 +50,7 @@ public class EntityBox extends Entity{
                 EntityManager.remove(this);
                 if (this.color.equals(Color.WHITE)) {
                     if (GameManager.player.lives == 1) {
-                        System.exit(0);
+                        GameManager.reset = true;
                     } else {
                         GameManager.player.lives -= 1;
                     }
@@ -58,7 +58,7 @@ public class EntityBox extends Entity{
 
                 if (this.color.equals(Color.BLUE)) {
                     float origSpeed = GameManager.speed;
-                    GameManager.speed = 1;
+                    GameManager.speed /= 2;
                     Timer t = new Timer();
                     t.scheduleAtFixedRate(new TimerTask() {
                         @Override

@@ -65,7 +65,7 @@ public class Main implements Runnable {
         GameManager.init();
 
 
-        glfwSetKeyCallback(window, callback = new KeyboardHandler(GameManager.player));
+        glfwSetKeyCallback(window, callback = new KeyboardHandler());
         System.out.println("OpenGL: "+ glGetString(GL_VERSION));
     }
 
@@ -111,9 +111,8 @@ public class Main implements Runnable {
                 frames = 0;
             }
 
-            if(glfwWindowShouldClose(window) == true){
-                running = false;
-            }
         }
+
+        this.start();
     }
 }
