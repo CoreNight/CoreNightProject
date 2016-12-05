@@ -54,7 +54,7 @@ public class GameManager{
                 if(spawnOverride != null){
                  color = spawnOverride;
                 }else{
-                    if(rand.nextInt(100) > 80 && (speed / 2) > .75){
+                    if(rand.nextInt(100) > 70 && (speed / 2) > .75){
                         color = COLORS[rand.nextInt(COLORS.length)];
                     }else{
                         color = Color.WHITE;
