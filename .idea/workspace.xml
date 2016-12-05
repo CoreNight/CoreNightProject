@@ -4,7 +4,6 @@
     <list default="true" id="295b0b23-7923-4043-bd1c-fcaddff040d9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/CoreNight/Entity/EntityBox.java" afterPath="$PROJECT_DIR$/src/org/CoreNight/Entity/EntityBox.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/CoreNight/GameManager.java" afterPath="$PROJECT_DIR$/src/org/CoreNight/GameManager.java" />
     </list>
     <ignored path="CoreNightProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +71,8 @@
       <file leaf-file-name="EntityBox.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/CoreNight/Entity/EntityBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+            <state relative-caret-position="514">
+              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -608,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480890281474</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add functionality for green and blue">
+      <created>1480914288723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1480914288723</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -724,7 +730,8 @@
     <MESSAGE value="Add collision detection." />
     <MESSAGE value="Add backround color updates&#10;work on getting spawn frequency to scale with speed" />
     <MESSAGE value="Check for color pickups" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check for color pickups" />
+    <MESSAGE value="Add functionality for green and blue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add functionality for green and blue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -992,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/CoreNight/Entity/EntityBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+        <state relative-caret-position="514">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

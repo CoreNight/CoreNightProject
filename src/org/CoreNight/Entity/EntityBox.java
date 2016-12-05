@@ -65,6 +65,7 @@ public class EntityBox extends Entity{
                         public void run() {
                             GameManager.speed = origSpeed;
                             GameManager.background = new Color(0, 0, 0);
+                            t.cancel();
                         }
                     }, 5000, 1000);
                 }
@@ -79,6 +80,7 @@ public class EntityBox extends Entity{
                         @Override
                         public void run() {
                             // code to make enemy blocks non lethal
+                            t.cancel();
                         }
                     }, 10000, 1000);
                 }
