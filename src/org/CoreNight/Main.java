@@ -112,7 +112,5 @@ public class Main implements Runnable {
             }
 
         }
-
-        this.start();
     }
 }

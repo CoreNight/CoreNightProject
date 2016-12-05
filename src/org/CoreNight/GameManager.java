@@ -49,7 +49,7 @@ public class GameManager{
             speed *= 1.001;
             Random rand = new Random();
             cycles++;
-            if(cycles % 100 == 0){
+            if(cycles % 50/(Math.pow(speed, 4)) == 0){
                 Color color;
                 if(spawnOverride != null){
                  color = spawnOverride;
