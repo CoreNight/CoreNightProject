@@ -75,11 +75,14 @@ public class EntityBox extends Entity{
                 }
 
                 if (this.color.equals(Color.RED)) {
+                    EntityManager.changeColor(Color.DARK_GRAY);
+                    GameManager.spawnOverride = Color.DARK_GRAY;
                     Timer t = new Timer();
                     t.scheduleAtFixedRate(new TimerTask() {
                         @Override
                         public void run() {
-                            // code to make enemy blocks non lethal
+                            GameManager.spawnOverride = null;
+                            EntityManager.changeColor(Color.WHITE);
                             t.cancel();
                         }
                     }, 10000, 1000);

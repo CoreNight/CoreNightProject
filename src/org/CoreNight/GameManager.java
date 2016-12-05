@@ -23,6 +23,7 @@ public class GameManager{
     public static float speed = 1;
     static ButtonPlay play;
     public static int buttonIndex = 0;
+    public static Color spawnOverride = null;
     public static final Color[] COLORS = new Color[]{
             Color.RED,
             Color.BLUE,
@@ -49,10 +50,14 @@ public class GameManager{
             cycles++;
             if(cycles % 100 == 0){
                 Color color;
-                if(rand.nextInt(100) > 80 && (speed / 2) > .75){
-                     color= COLORS[rand.nextInt(COLORS.length)];
+                if(spawnOverride != null){
+                 color = spawnOverride;
                 }else{
-                    color = Color.WHITE;
+                    if(rand.nextInt(100) > 80 && (speed / 2) > .75){
+                        color = COLORS[rand.nextInt(COLORS.length)];
+                    }else{
+                        color = Color.WHITE;
+                    }
                 }
                 EntityBox box = new EntityBox(rand.nextInt(rowcount), color);
             }

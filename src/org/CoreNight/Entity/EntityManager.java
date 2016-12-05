@@ -1,5 +1,6 @@
 package org.CoreNight.Entity;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,14 @@ public class EntityManager {
     public static void drawEntities(){
         for(Entity e : entityList){
             e.draw();
+        }
+    }
+
+    public static void changeColor(Color color){
+        for(Entity e : entityList){
+            if(!(e instanceof EntityPlayer)){
+                e.color = color;
+            }
         }
     }
 }
