@@ -57,7 +57,6 @@ public class EntityBox extends Entity{
                 }
 
                 if (this.color.equals(Color.BLUE)) {
-                    System.out.println("Blue color hit");
                     float origSpeed = GameManager.speed;
                     GameManager.speed = 1;
                     Timer t = new Timer();
@@ -75,7 +74,13 @@ public class EntityBox extends Entity{
                 }
 
                 if (this.color.equals(Color.RED)) {
-                    // put red ability code here
+                    Timer t = new Timer();
+                    t.scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
+                            // code to make enemy blocks non lethal
+                        }
+                    }, 10000, 1000);
                 }
             }
         }
